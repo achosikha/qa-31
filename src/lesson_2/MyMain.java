@@ -2,8 +2,8 @@ package lesson_2;
 
 public class MyMain {
     public static void main(String[] args){
-
         // Объявление собственного МЕТОДА
+        makeTypeCasting();
     }
 
     public static void getBasicVariableInfo(){
@@ -77,5 +77,89 @@ public class MyMain {
                 "Your age is: " + age + "\n" + "Your prefix is: " + prefix + "\n" +
                 "Are you employed? " + isEmployed + "\n" + "Your profession is: " + profession + "\n" +
                 "Your TMS score is: " + scoreTMS);
+    }
+
+    public static void getMemoryInformation(){
+        // Вопрос о том, как в Джава хранятся данные
+        // Мы поделили переменные на две категории
+        // 1. ПРИМИТИВНЫЕ, ALL except STRING
+        // 2. ССЫЛОЧНЫЕ, STRING - ОБЪЕКТЫ В ДЖАВА МОГУТ ХРАНИТЬСЯ ТОЛЬКО В КУЧУ!!!!
+
+        // In RAM - есть два пространства для хранения данных
+        // КРАТКОСРОЧНАЯ ПАМЯТЬ - STACK перевода нет
+        // ДОЛГОСЧРОНАЯ ПАМЯТЬ - КУЧА / HEAP
+        // STACK - хранятся все примитивные типы данных и они появляются, удаляются
+        // удаление происходит тогда, когда переменная перестает использоваться
+        // КУЧА / HEAP хранит данные до тех пор, пока ваш Java Garbage Collector (Сборщик Мусора)
+        // Не решит, что пора оптимизировать опять и зачистить концы
+        int age = 4; // int - 4 bytes STACK, behind age -> address for the MACHINE
+    }
+
+    public static void getOperatorsInformation(){
+        System.out.println("What type of operators do we have?");
+        System.out.println("Arithmetic - Logical - Bitwise.");
+        System.out.println("+, -, *, /, %, =, ++, --");
+
+        double weight = 18.56;
+        double weightB = 78.6;
+        int height = 171;
+        int heightB = 89;
+
+        double sum = weight - weightB;
+        double sumP = weightB + weight;
+        double sumF = weight * weightB;
+        double sumD = weight / weightB;
+
+        // sout - System.out.println()
+        System.out.println(sum);
+        System.out.println(sumP);
+        System.out.println(sumF);
+        System.out.println(sumD);
+
+        System.out.println();
+
+        System.out.println("How much is 5 + 10? " + (5 + 10));
+        System.out.println("How much is 5 * 10? " + (5 * 10));
+        System.out.println("Result: " + 5 + (10 - 6) / (5 * 10));
+        System.out.println("20 четное число? " + (23%2)); // Остаток - 0, значит четное, 1 - нечетное
+
+        int cost = 100; // Объявление переменной и указание значения
+        cost = cost - 1; // Классическое убавление
+        cost-= 1; // сокращенное, по сути, cost = cost - 1; cost+=10;
+        cost--; // пост-декремент, -- ставится после имени переменной и убавляет число 1
+
+        int costB = 101;
+        costB = costB + 1;
+        costB+= 1;
+        costB++; // пост-инкремент, когда ++ ставится после имени переменной и означает +1
+
+        int productCost = 0;
+        productCost+= 10; // 0 + 10
+        productCost/= 5; // 10 / 5
+
+        System.out.println("Result: " + (productCost/2));
+
+        // И, ИЛИ, НЕ РАВНО, РАВНО
+        // И - &&, ИЛИ - ||, НЕ РАВНО - !=, РАВНО - ==
+    }
+
+    public static void makeTypeCasting(){
+        // int 4 byte
+        int height = 171;
+
+        // double 8 byte
+        double weight = 88.3;
+
+        double sum = height / weight;
+
+        System.out.println(sum);
+
+        double heightD = 171.8; // если мы пытаемся уложить числа после запятой в целочисленное значение, все после
+        // точки просто отбрасывается - результат 171
+        int weightD = 178;
+
+        // Принудительное преобразования типа, когда более большая переменная должна быть уложена в менее большу
+        // В данном случае, мы пытаемся сохранить double в int
+        int newSum = (int) heightD / weightD;
     }
 }
