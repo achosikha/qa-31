@@ -1,0 +1,48 @@
+    public static void enterValuesForArray(){
+        // 1. Позвольте пользователю самостоятельно выбрать длину массива
+        // 2. Проверьте введенное значение (если оно допустимо, следующий шаг, если нет, заново запросить значение)
+        // 3. Позволить пользователю ввести каждое значение элемента массива
+        // 4. Собрать сумму всех значений и вывести пока каждый элемент отдельно, а потом среднее значение суммы
+        System.out.println("Welcome to TASK 1.");
+
+        Scanner input = new Scanner(System.in);
+        int arrayLength; // 1. Если не целочисленное значение - ИСКЛЮЧЕНИЕ
+        // Добавить ОБРАБОТКУ ИСКЛЮЧЕНИЯ или же сделать все правильно, позволить вводить в СТРОЧКАХ, а потом проверять
+        // введенное значение - это целое число или нет
+
+        while(true){ // бесконечный цикл - КЛАССИКА ЖАНРА
+            System.out.print("Please, enter a valid number of elements for an array ( > 0): ");
+
+            // arrayLength = input.nextInt(); + if (arrayLength > 0) break;
+            if ((arrayLength = input.nextInt()) > 0) break;
+            System.out.println("\nYou have entered incorrect array length: " + arrayLength);
+        }
+
+        System.out.println();
+        int[] values = new int[arrayLength];
+
+        System.out.println("Your array - values has " + arrayLength + " elements.\n");
+
+        for (int index = 0; index < values.length; index++){
+            System.out.print("Please enter a value for the array - values[" + (index + 1) + "]: ");
+            values[index] = input.nextInt();
+        }
+
+        System.out.println();
+
+        for (int index = 0; index < values.length; index++){
+            System.out.printf("values[%d]: %d.\n", (index + 1), values[index]);
+        }
+
+        System.out.println();
+
+        int sum = 0;
+
+        for (int index = 0; index < values.length; index++){
+            sum = sum + values[index];
+        }
+
+        System.out.println("Your sum of the values stored in the elements equals: " + sum);
+        System.out.printf("The average sum of values of the elements equals SUM/LENGTH: %.4f",
+                (double) sum / values.length);
+    }

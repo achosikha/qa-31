@@ -1,4 +1,4 @@
-package lesson_5_operators_arrays;
+package lesson_4_operators_arrays;
 
 import java.util.Random;
 import java.util.Scanner;
