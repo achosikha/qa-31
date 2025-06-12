@@ -34,6 +34,16 @@ public class MethodsOverload {
         // А ЭТО ЗНАЧИТ, ЧТО ПЕРЕДАЕТСЯ ПРЯМО АДРЕС НА ОРИГИНАЛЬНУЮ ПЕРЕМЕННУЮ
         // Т.Е. МЫ МОЖЕМ ПРЯМО МЕНЯТЬ ОРИГИНАЛ - это невозможно сделать с примитивными значения
         // PASS-BY-REFERENCE
+
+        //
+        getSum();
+        getSum(14);
+        getSum(14, 67);
+        getSum(14, 67D); // D - double
+
+        short value = 109;
+
+        getSum(109);
     }
 
     // Массив это тоже ОБЪЕКТ, значит это ссылочного типа переменная
@@ -143,6 +153,27 @@ public class MethodsOverload {
         }
     }
 
-    // Перегрузкой МЕТОДА
+    // Перегрузкой МЕТОДА - Method Overload
     // СИГНАТУРА МЕТОДА или ПОДПИСЬ МЕТОДА
+    // СИГНАТУРА МЕТОДА или банально ПОДПИСЬ МЕТОДА (METHOD SIGNATURE)
+    // ПОДРАЗУМЕВАЕТ - имя метода и его параметры БОЛЬШЕ НИЧЕГО!
+    // Возвращаемое значение не является частью СИГНАТУРЫ МЕТОДА
+    public static void getSum(){
+        System.out.println("getSum method without parameters.");
+    }
+
+    public static void getSum(int value){
+        System.out.println("getSum method wit int values parameter.");
+    }
+
+    // short & int ???? Иногда в некоторых языках могут быть проблемы - компилятору непонятно куда идти
+    public static void getSum(short value){}
+
+    public static void getSum(int value, int secondValue){
+        System.out.println("getSum method with int value, int secondValue parameters.");
+    }
+
+    public static void getSum(double value, double secondValue){
+        System.out.println("getSum method with double value, double secondValue parameters.");
+    }
 }
