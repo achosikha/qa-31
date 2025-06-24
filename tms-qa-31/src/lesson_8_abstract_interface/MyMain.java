@@ -1,11 +1,57 @@
 package lesson_8_abstract_interface;
 
+// INCLUDE ALL CLASSES FROM THE PACKAGE .*;
+import lesson_8_abstract_interface.cls.*;
+
+/*
+import lesson_8_abstract_interface.cls.MyClcA;
+import lesson_8_abstract_interface.cls.MyClcB;
+import lesson_8_abstract_interface.cls.MyClcC;
+ */
+
+
+import lesson_8_abstract_interface.hospital.Doctors;
+import lesson_8_abstract_interface.hospital.IT;
+import lesson_8_abstract_interface.hospital.StaffMembers;
+import lesson_8_abstract_interface.hospital.Surgeon;
 import lesson_8_abstract_interface.pc.*;
 
 public class MyMain {
     public static void main(String[] args) {
         // Create PC
-        createCP();
+        createStaffMembers();
+    }
+
+    public static void inheritanceStructure(){
+        StaffMembers staffMembers = new Doctors("A", "B", "1890", 0,
+                "U", "U");
+
+        Doctors doctors = new Doctors("A", "B", "1890", 0,"U", "U");
+
+        Doctors surgeon = new Surgeon("A", "B", "1890", 0,"U", "U");
+
+        Surgeon surgeonOnly = new Surgeon("A", "B", "1890", 0,"U", "U");
+    }
+
+    public static void createStaffMembers(){
+        StaffMembers[] staffMembers = new StaffMembers[]{
+                new Doctors("Stanisvlav", "Golovnev", "2000", 25,
+                        "Surgeon", "N/A"),
+                new IT("Maksim", "Alekseichik", "1995", 30,
+                        "QA Automatization", "N/A"),
+                new Surgeon("Katya", "Vasilisovna", "1985", 40,
+                        "Surgeon", "N/A")
+        };
+
+        for (StaffMembers person : staffMembers){
+            person.comeToOffice();
+        }
+    }
+
+    public static void callMyCLS(){
+        MyClcA myClcA = new MyClcA();
+        MyClcB myClcB = new MyClcB();
+        MyClcC myClcC = new MyClcC();
     }
 
     public static void createCP(){
